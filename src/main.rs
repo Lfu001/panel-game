@@ -13,7 +13,7 @@ async fn main() -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clon
     let config = move |cfg: &mut ServiceConfig| {
         cfg.service(index)
             .service(estimate)
-            .service(Files::new("/", "frontend/dist"));
+            .service(Files::new("/", "frontend/.output/public"));
     };
 
     Ok(config.into())

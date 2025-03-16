@@ -1,4 +1,4 @@
 [deploy]
 include = [
-  "frontend/dist/*",
+  "frontend/.output/public/*"
 ]
