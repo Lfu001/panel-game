@@ -2,7 +2,7 @@
   <div class="flex items-center gap-2">
     <div
       class="mr-2 grid gap-1"
-      :style="{ gridTemplateColumns: `repeat(${itemSize.rows}, 1fr)` }"
+      :style="{ gridTemplateColumns: `repeat(${itemSize.cols}, 1fr)` }"
     >
       <div
         v-for="index in itemSize.rows * itemSize.cols"
@@ -59,9 +59,12 @@ const numItemOptions = Array.from({ length: 7 }).map((_, i) => i)
  * The presets for the item size.
  */
 const presets = [
-  new ItemSize(2, 1),
-  new ItemSize(3, 1),
-  new ItemSize(3, 2),
+  new ItemSize(1, 2),
+  new ItemSize(1, 3),
+  new ItemSize(1, 4),
+  new ItemSize(2, 2),
+  new ItemSize(2, 3),
+  new ItemSize(2, 4),
   new ItemSize(3, 3),
 ]
 
