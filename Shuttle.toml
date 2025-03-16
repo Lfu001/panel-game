@@ -2,3 +2,8 @@
 include = [
   "frontend/.output/public/*"
 ]
+
+[build]
+assets = [
+  "frontend/.output/public/*"
+]
