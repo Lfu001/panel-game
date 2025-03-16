@@ -1,5 +1,5 @@
 <template>
-  <div class="grid h-full w-full grid-cols-9 gap-[0.5rem]">
+  <div class="container grid h-full grid-cols-9 gap-[0.5rem]">
     <GridPanelItem
       v-for="index in 45"
       :key="index - 1"
