@@ -12,7 +12,7 @@
     </div>
     <select
       v-model="selectedItemSizePresetIndex"
-      class="rounded-full border border-gray-300 bg-white px-2 py-1 transition-colors duration-500 outline-none dark:border-gray-500 dark:bg-slate-700 dark:text-white"
+      class="appearance-none rounded-full border border-gray-300 bg-white px-2 py-1 transition-colors duration-500 outline-none select-none dark:border-gray-500 dark:bg-slate-700 dark:text-white"
       @change="handleSelectChange($event, 'itemSize')"
     >
       <option
@@ -25,7 +25,7 @@
     </select>
     <select
       v-model="selectedNumItems"
-      class="rounded-full border border-gray-300 bg-white px-2 py-1 transition-colors duration-500 outline-none dark:border-gray-500 dark:bg-slate-700 dark:text-white"
+      class="appearance-none rounded-full border border-gray-300 bg-white px-2 py-1 transition-colors duration-500 outline-none select-none dark:border-gray-500 dark:bg-slate-700 dark:text-white"
       @change="handleSelectChange($event, 'numItems')"
     >
       <option
