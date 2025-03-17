@@ -1,6 +1,6 @@
 <template>
   <button
-    class="cursor-pointer rounded-full bg-red-500 px-4 py-2 text-white outline-none hover:bg-red-700"
+    class="cursor-pointer rounded-full bg-red-500 px-4 py-2 text-white outline-none select-none hover:bg-red-700"
     @click="resetGrid"
   >
     Reset

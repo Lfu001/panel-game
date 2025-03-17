@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex h-10 w-24 items-center justify-center rounded-full px-2 py-1 text-xs font-bold text-gray-700 transition-colors duration-300 outline-none"
+    class="flex h-10 w-24 items-center justify-center rounded-full px-2 py-1 text-xs font-bold text-gray-700 transition-colors duration-300 outline-none select-none"
     :class="
       displayMode == DisplayMode.Probability
         ? 'bg-amber-300 hover:bg-amber-400 active:bg-amber-500'
