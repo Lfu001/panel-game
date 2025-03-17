@@ -1,15 +1,32 @@
 <template>
   <div
-    class="flex aspect-square w-full cursor-pointer items-center justify-center transition-colors duration-300"
-    :class="[panelData !== null ? '' : isOpen ? 'bg-gray-100' : 'bg-gray-500']"
-    :style="{ backgroundColor }"
-    @click="$emit('click')"
+    :class="[
+      isOpen
+        ? 'before:animate-signal relative inline-block before:absolute before:-inset-0 before:rounded-sm'
+        : '',
+      displayModeStore.mode == DisplayMode.Entropy
+        ? 'before:bg-blue-700'
+        : 'before:bg-emerald-700',
+    ]"
   >
-    <span
-      v-if="panelData !== null"
-      class="text-base font-bold"
-      :style="{ color: textColor }"
-    >{{ label }}</span>
+    <div
+      class="relative flex aspect-square w-full cursor-pointer items-center justify-center transition-colors duration-300"
+      :class="[
+        panelData !== null ? '' : isOpen ? 'bg-gray-100' : 'bg-gray-500',
+        isOpen ? 'border-2' : '',
+        displayModeStore.mode == DisplayMode.Entropy
+          ? 'border-blue-400'
+          : 'border-emerald-400',
+      ]"
+      :style="{ backgroundColor }"
+      @click="$emit('click')"
+    >
+      <span
+        v-if="panelData !== null"
+        class="text-base font-bold select-none"
+        :style="{ color: textColor }"
+      >{{ label }}</span>
+    </div>
   </div>
 </template>
 
