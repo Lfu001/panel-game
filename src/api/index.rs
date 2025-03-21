@@ -3,7 +3,7 @@ use actix_web::{Responder, get};
 
 #[get("/")]
 pub async fn index() -> impl Responder {
-    NamedFile::open_async("frontend/dist/index.html").await
+    NamedFile::open_async("frontend/.output/public/index.html").await
 }
 
 #[cfg(test)]
