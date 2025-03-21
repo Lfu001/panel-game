@@ -64,7 +64,7 @@ mod tests {
 
     #[actix_web::test]
     async fn test_estimate_invalid_grid_size() {
-        let mut app = test::init_service(App::new().service(estimate)).await;
+        let app = test::init_service(App::new().service(estimate)).await;
         let req = test::TestRequest::post()
             .uri("/estimate")
             .set_json(&RequestParams {
@@ -73,13 +73,13 @@ mod tests {
             })
             .to_request();
 
-        let resp = test::call_service(&mut app, req).await;
+        let resp = test::call_service(&app, req).await;
         assert_eq!(resp.status(), StatusCode::BAD_REQUEST);
     }
 
     #[actix_web::test]
     async fn test_estimate_no_rectangles() {
-        let mut app = test::init_service(App::new().service(estimate)).await;
+        let app = test::init_service(App::new().service(estimate)).await;
         let req = test::TestRequest::post()
             .uri("/estimate")
             .set_json(&RequestParams {
@@ -88,7 +88,7 @@ mod tests {
             })
             .to_request();
 
-        let resp = test::call_service(&mut app, req).await;
+        let resp = test::call_service(&app, req).await;
         assert_eq!(resp.status(), StatusCode::OK);
 
         let response_body: ResponseMessage = test::read_body_json(resp).await;
@@ -103,7 +103,7 @@ mod tests {
 
     #[actix_web::test]
     async fn test_estimate() {
-        let mut app = test::init_service(App::new().service(estimate)).await;
+        let app = test::init_service(App::new().service(estimate)).await;
         let req = test::TestRequest::post()
             .uri("/estimate")
             .set_json(&RequestParams {
@@ -111,7 +111,7 @@ mod tests {
                 rectangles: vec![Rectangle::new(1, 1), Rectangle::new(2, 1)],
             })
             .to_request();
-        let resp = test::call_service(&mut app, req).await;
+        let resp = test::call_service(&app, req).await;
         assert_eq!(resp.status(), StatusCode::OK);
 
         let body = test::read_body(resp).await;
