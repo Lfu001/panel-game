@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::colors::{Color, ColorMap, to_rgb};
 
 /// A rectangle.
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Hash, Eq, PartialEq, Debug)]
 pub struct Rectangle {
     width: usize,
     height: usize,
@@ -30,9 +30,15 @@ impl Rectangle {
     pub fn transpose(&mut self) {
         std::mem::swap(&mut self.width, &mut self.height);
     }
+
+    /// Calculates the area of this [`Rectangle`].
+    pub fn area(&self) -> usize {
+        self.width * self.height
+    }
 }
 
 /// A two-dimensional position.
+#[derive(Clone, Hash, Eq, PartialEq, Debug)]
 pub struct Position {
     x: usize,
     y: usize,
@@ -56,7 +62,7 @@ impl Position {
 }
 
 /// A two-dimensional grid of values.
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Grid<T> {
     rows: usize,
     cols: usize,
