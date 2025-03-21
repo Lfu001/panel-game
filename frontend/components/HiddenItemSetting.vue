@@ -98,10 +98,10 @@ const handleSelectChange = (event: Event, type: 'itemSize' | 'numItems') => {
   const size = type === 'itemSize' ? presets[Number(value)] : undefined
   const count = type === 'numItems' ? Number(value) : undefined
 
-  if (size) {
+  if (size != null) {
     itemStore.setSize(props.settingIndex, size)
   }
-  if (count) {
+  if (count != null) {
     itemStore.setCount(props.settingIndex, count)
   }
 }
