@@ -161,6 +161,14 @@ pub fn estimate_probabilities(rect_mask: &Grid<bool>, rectangles: &[Rectangle]) 
 }
 
 /// Computes the entropy of a grid from its probabilities.
+///
+/// # Arguments
+///
+/// * `probabilities` - A grid of probabilities.
+///
+/// # Returns
+///
+/// A grid of entropies computed from the probabilities element-wise.
 pub fn to_entropy(probabilities: &Grid<f64>) -> Grid<f64> {
     let mut entropy = Grid::new(probabilities.rows(), probabilities.cols(), 0.0);
     for i in 0..probabilities.rows() {
